@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.2.0...v0.3.0) (2025-09-07)
+
+### Features
+
+* configure PR review ([2e0e658](https://github.com/agilecustoms/terraform-github-repo/commit/2e0e65863fb2ea16d30f0037853cc7e1eaacd4cc))
+
+
 ## [0.2.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.1.0...v0.2.0) (2025-09-07)
 
 ### Features
