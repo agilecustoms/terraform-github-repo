@@ -71,6 +71,24 @@ variable "release_environment" {
   description = "create 'release' environment to store GH_TOKEN secret to allow pushing automated commits via release action. use false for -gitops repos that do not produce any artifact"
 }
 
+variable "require_code_owner_review" {
+  type    = bool
+  default = true
+  description = "Require code owner review for pull requests"
+}
+
+variable "required_approving_review_count" {
+  type    = number
+  default = 1
+  description = "Number of required approving reviews for pull requests"
+}
+
+variable "required_review_thread_resolution" {
+  type    = bool
+  default = true
+  description = "Require all review threads to be resolved before merging"
+}
+
 variable "secrets" {
   type        = map(string)
   description = "secrets key => value"

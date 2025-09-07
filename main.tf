@@ -56,9 +56,9 @@ resource "github_repository_ruleset" "branches" {
     non_fast_forward = true # no force push
 
     pull_request {
-      require_code_owner_review         = true
-      required_approving_review_count   = 1
-      required_review_thread_resolution = true
+      require_code_owner_review         = var.require_code_owner_review
+      required_approving_review_count   = var.required_approving_review_count
+      required_review_thread_resolution = var.required_review_thread_resolution
     }
   }
 }
