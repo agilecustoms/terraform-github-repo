@@ -1,23 +1,60 @@
+variable "access_level" {
+  type        = string
+  default     = "none"
+  description = "use organization for corporate gh actions"
+  validation {
+    condition     = contains(["none", "user", "organization", "enterprise"], var.access_level)
+    error_message = "Visibility must be one of: node, user, organization or enterprise"
+  }
+}
+
+variable "allow_auto_merge" {
+  type    = bool
+  default = true
+}
+
+variable "allow_update_branch" {
+  type    = bool
+  default = true
+}
+
+variable "archive_on_destroy" {
+  type    = bool
+  default = true
+}
+
+variable "auto_init" {
+  type    = bool
+  default = true
+}
+
+variable "bypass_actors" {
+  type        = map(string)
+  description = "actor_id => actor_type"
+  default = {
+    "0" = "OrganizationAdmin" # Documentation says it is 1, but if set to 1, it always detects changes
+  }
+}
+
+variable "delete_branch_on_merge" {
+  type    = bool
+  default = true
+}
+
 variable "default_branch" {
   default = "main"
 }
 
 variable "description" {}
 
-variable "gh_action" {
-  type        = bool
-  description = "This repo is a custom GitHub action and thus needs to be accessible to the organization"
-  default     = false
-}
-
 variable "has_discussions" {
   type    = bool
-  default = null # default behavior depends on public visibility
+  default = null # true if visibility=public, false otherwise
 }
 
 variable "has_issues" {
   type    = bool
-  default = null # default behavior depends on public visibility
+  default = null # true if visibility=public, false otherwise
 }
 
 variable "name" {}
@@ -26,11 +63,6 @@ variable "release_branches" {
   type        = list(string)
   default     = ["main", "next"]
   description = "these branches are _not_ created, instead you mark them as protected once they get created"
-}
-
-variable "public" {
-  type    = bool
-  default = false
 }
 
 variable "release_environment" {
@@ -43,4 +75,13 @@ variable "secrets" {
   type        = map(string)
   description = "secrets key => value"
   default     = {}
+}
+
+variable "visibility" {
+  type    = string
+  default = "private"
+  validation {
+    condition     = contains(["public", "private", "internal"], var.visibility)
+    error_message = "Visibility must be one of: public, private, internal"
+  }
 }
