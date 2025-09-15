@@ -47,6 +47,17 @@ variable "default_branch" {
 
 variable "description" {}
 
+variable "reviewers_github" {
+  type        = list(string)
+  default     = []
+  description = <<EOT
+List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files.
+Notes:
+1. Changes in CODEOWNERS file are not managed after initial creation
+2. It is recommended to use a team name, not specific people
+EOT
+}
+
 variable "has_discussions" {
   type    = bool
   default = null # true if visibility=public, false otherwise
@@ -72,20 +83,20 @@ variable "release_environment" {
 }
 
 variable "require_code_owner_review" {
-  type    = bool
-  default = true
+  type        = bool
+  default     = true
   description = "Require code owner review for pull requests"
 }
 
 variable "required_approving_review_count" {
-  type    = number
-  default = 1
+  type        = number
+  default     = 1
   description = "Number of required approving reviews for pull requests"
 }
 
 variable "required_review_thread_resolution" {
-  type    = bool
-  default = true
+  type        = bool
+  default     = true
   description = "Require all review threads to be resolved before merging"
 }
 

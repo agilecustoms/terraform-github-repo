@@ -28,7 +28,24 @@ resource "github_branch_default" "it" {
   branch     = github_branch.default.branch
 }
 
+resource "github_repository_file" "codeowners" {
+  count               = length(var.reviewers_github) > 0 ? 1 : 0
+  repository          = github_repository.repo.name
+  branch              = github_branch.default.branch
+  file                = ".github/CODEOWNERS"
+  content             = ".github/ @${join(" @", var.reviewers_github)}\n"
+  commit_message      = "Admins must approve any changes in .github dir"
+  overwrite_on_create = false
+
+  lifecycle {
+    ignore_changes = [content] # any changes is EVOLUTION, so no need to overwrite existing file
+  }
+}
+
 resource "github_repository_ruleset" "branches" {
+  # First create CODEOWNERS file, then protect branches
+  depends_on = [github_repository_file.codeowners]
+
   name        = "Branches"
   repository  = github_repository.repo.name
   target      = "branch"
