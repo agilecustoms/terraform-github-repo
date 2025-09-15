@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.3.0...v0.4.0) (2025-09-15)
+
+### Features
+
+* add CODEOWNERS ([bc35a05](https://github.com/agilecustoms/terraform-github-repo/commit/bc35a055f2ca2677f700b6a5c0c2c545230fce60))
+
+
 ## [0.3.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.2.0...v0.3.0) (2025-09-07)
 
 ### Features
