@@ -54,7 +54,8 @@ variable "reviewers_github" {
 List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files.
 Notes:
 1. Changes in CODEOWNERS file are not managed after initial creation
-2. It is recommended to use a team name, not specific people
+2. It is recommended to use a team name, not specific users (team needs to be visible, no secret)
+3. team/users need to have write access to the repository
 EOT
 }
 
