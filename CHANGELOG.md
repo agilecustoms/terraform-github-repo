@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.4.0...v0.4.1) (2025-09-16)
+
+### Bug Fixes
+
+* update var description ([997fc97](https://github.com/agilecustoms/terraform-github-repo/commit/997fc97e8b59ec4ba6d7f289a75c1e200d41e669))
+
+
 ## [0.4.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.3.0...v0.4.0) (2025-09-15)
 
 ### Features
