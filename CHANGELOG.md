@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.5.0...v0.6.0) (2025-09-17)
+
+### Features
+
+* add require_last_push_approval ([8e9e559](https://github.com/agilecustoms/terraform-github-repo/commit/8e9e5599f96e096e9bd3e4cc2132c087b4be0270))
+
+
 ## [0.5.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.4.1...v0.5.0) (2025-09-17)
 
 ### Features
