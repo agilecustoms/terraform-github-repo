@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.4.1...v0.5.0) (2025-09-17)
+
+### Features
+
+* rename variables, start documentation ([55f2ff4](https://github.com/agilecustoms/terraform-github-repo/commit/55f2ff458fb10e7560342e1c59f7cb7ad92dd30f))
+
+
 ## [0.4.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.4.0...v0.4.1) (2025-09-16)
 
 ### Bug Fixes
