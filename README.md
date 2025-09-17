@@ -57,6 +57,7 @@ No modules.
 | release_environment               | _true_                        |                                                                                                                                     |
 | release_environment_secrets       |                               |                                                                                                                                     |
 | require_code_owner_review         | _true_                        |                                                                                                                                     |
+| require_last_push_approval        | _true_                        |                                                                                                                                     |
 | required_approving_review_count   | 1                             |                                                                                                                                     |
 | required_review_thread_resolution | _true_                        |                                                                                                                                     |
 | **reviewers_github** (required)   |                               | CODEOWNERS for files in `.github/`. Recommended to use a team, but can be individual users. Empty array to skip `.github` reviewers |

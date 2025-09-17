@@ -83,6 +83,12 @@ variable "require_code_owner_review" {
   description = "Require code owner review for pull requests"
 }
 
+variable "require_last_push_approval" {
+  type        = bool
+  default     = true
+  description = "Require approval from someone other than the person who pushed the last commit"
+}
+
 variable "required_approving_review_count" {
   type        = number
   default     = 1

@@ -74,6 +74,7 @@ resource "github_repository_ruleset" "branches" {
 
     pull_request {
       require_code_owner_review         = var.require_code_owner_review
+      require_last_push_approval        = var.require_last_push_approval
       required_approving_review_count   = var.required_approving_review_count
       required_review_thread_resolution = var.required_review_thread_resolution
     }
