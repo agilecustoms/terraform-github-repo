@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.6.0...v0.6.1) (2025-09-17)
+
+### Documentation
+
+* document defaults ([31e4b86](https://github.com/agilecustoms/terraform-github-repo/commit/31e4b86f7b7b17c8c841b1268f6dda4841ad6501))
+
+
 ## [0.6.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.5.0...v0.6.0) (2025-09-17)
 
 ### Features
