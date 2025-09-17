@@ -12,9 +12,9 @@ resource "github_repository" "repo" {
 }
 
 resource "github_actions_repository_access_level" "access" {
-  count        = var.visibility != "public" ? 1 : 0
+  count        = var.visibility != "public" && var.actions_repository_access_level != null ? 1 : 0
   repository   = github_repository.repo.name
-  access_level = var.access_level
+  access_level = var.actions_repository_access_level
 }
 
 # documentation doesn't speak about it, but this resource behaves "create if not exist. if exist - import in tf state"

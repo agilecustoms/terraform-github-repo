@@ -9,7 +9,7 @@ resource "github_repository_environment" "release" {
 }
 
 resource "github_actions_environment_secret" "release" {
-  for_each        = var.release_environment ? var.secrets : {}
+  for_each        = var.release_environment ? var.release_environment_secrets : {}
   repository      = github_repository.repo.name
   environment     = github_repository_environment.release[0].environment
   secret_name     = each.key

@@ -1,9 +1,9 @@
-variable "access_level" {
+variable "actions_repository_access_level" {
   type        = string
-  default     = "none"
+  default     = null
   description = "use organization for corporate gh actions"
   validation {
-    condition     = contains(["none", "user", "organization", "enterprise"], var.access_level)
+    condition     = var.actions_repository_access_level == null || contains(["none", "user", "organization", "enterprise"], var.actions_repository_access_level)
     error_message = "Visibility must be one of: node, user, organization or enterprise"
   }
 }
@@ -47,18 +47,6 @@ variable "default_branch" {
 
 variable "description" {}
 
-variable "reviewers_github" {
-  type        = list(string)
-  default     = []
-  description = <<EOT
-List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files.
-Notes:
-1. Changes in CODEOWNERS file are not managed after initial creation
-2. It is recommended to use a team name, not specific users (team needs to be visible, no secret)
-3. team/users need to have write access to the repository
-EOT
-}
-
 variable "has_discussions" {
   type    = bool
   default = null # true if visibility=public, false otherwise
@@ -83,6 +71,12 @@ variable "release_environment" {
   description = "create 'release' environment to store GH_TOKEN secret to allow pushing automated commits via release action. use false for -gitops repos that do not produce any artifact"
 }
 
+variable "release_environment_secrets" {
+  type        = map(string)
+  description = "secrets key => value"
+  default     = {}
+}
+
 variable "require_code_owner_review" {
   type        = bool
   default     = true
@@ -101,10 +95,15 @@ variable "required_review_thread_resolution" {
   description = "Require all review threads to be resolved before merging"
 }
 
-variable "secrets" {
-  type        = map(string)
-  description = "secrets key => value"
-  default     = {}
+variable "reviewers_github" {
+  type        = list(string)
+  description = <<EOT
+List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files.
+Notes:
+1. Changes in CODEOWNERS file are not managed after initial creation
+2. It is recommended to use a team name, not specific users (team needs to be visible, no secret)
+3. team/users need to have write access to the repository
+EOT
 }
 
 variable "visibility" {
