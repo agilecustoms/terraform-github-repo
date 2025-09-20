@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.6.2](https://github.com/agilecustoms/terraform-github-repo/compare/v0.6.1...v0.6.2) (2025-09-20)
+
+### Miscellaneous
+
+* update actions/checkout to v5 ([d498ccc](https://github.com/agilecustoms/terraform-github-repo/commit/d498cccf4708f2a6da8621dec63243bb6017afde))
+
+
 ## [0.6.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.6.0...v0.6.1) (2025-09-17)
 
 ### Documentation
