@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.6.2...v0.7.0) (2025-09-24)
+
+### Features
+
+* intermediate commit with lots of new vars ([4a4735b](https://github.com/agilecustoms/terraform-github-repo/commit/4a4735b6de8bbcd2414f3c0fe42089d4865b2f8a))
+
+
 ## [0.6.2](https://github.com/agilecustoms/terraform-github-repo/compare/v0.6.1...v0.6.2) (2025-09-20)
 
 ### Miscellaneous
