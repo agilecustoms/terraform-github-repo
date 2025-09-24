@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.10.0...v0.11.0) (2025-09-24)
+
+### Features
+
+* add required_code_scanning block ([1207b05](https://github.com/agilecustoms/terraform-github-repo/commit/1207b05e7dd065626f43dc18a77c4bc76da340b0))
+
+
 ## [0.10.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.9.0...v0.10.0) (2025-09-24)
 
 ### Features
