@@ -165,6 +165,54 @@ variable "merge_commit_title" {
   description = "Can be PR_TITLE or MERGE_MESSAGE for a default merge commit title. Applicable only if allow_merge_commit is true"
 }
 
+variable "merge_queue" {
+  type        = bool
+  default     = false
+  description = "Allow to enable merge queue, see inputs with merge_queue_ prefix"
+}
+
+variable "merge_queue_check_response_timeout_minutes" {
+  type        = number
+  default     = 60
+  description = "Maximum time for a required status check to report a conclusion. After this much time has elapsed, checks that have not reported a conclusion will be assumed to have failed"
+}
+
+variable "merge_queue_grouping_strategy" {
+  type        = string
+  default     = "ALLGREEN"
+  description = "When set to ALLGREEN, the merge commit created by merge queue for each PR in the group must pass all required checks to merge. When set to HEADGREEN, only the commit at the head of the merge group must pass its required checks to merge. Can be one of: ALLGREEN, HEADGREEN"
+}
+
+variable "merge_queue_max_entries_to_build" {
+  type        = number
+  default     = 5
+  description = "Limit the number of queued pull requests requesting checks and workflow runs at the same time"
+}
+
+variable "merge_queue_max_entries_to_merge" {
+  type        = number
+  default     = 5
+  description = "Limit the number of queued pull requests requesting checks and workflow runs at the same time"
+}
+
+variable "merge_queue_merge_method" {
+  type        = string
+  default     = "MERGE"
+  description = "Method to use when merging changes from queued pull requests. Can be one of: MERGE, SQUASH, REBASE"
+}
+
+variable "merge_queue_min_entries_to_merge" {
+  type        = number
+  default     = 1
+  description = "The minimum number of PRs that will be merged together in a group"
+}
+
+variable "merge_queue_min_entries_to_merge_wait_minutes" {
+  type        = number
+  default     = 5
+  description = "The time merge queue should wait after the first PR is added to the queue for the minimum group size to be met. After this time has elapsed, the minimum group size will be ignored and a smaller group will be merged"
+}
+
 variable "name" {
   type        = string
   description = "Repository name"
@@ -236,20 +284,20 @@ variable "require_last_push_approval" {
 }
 
 variable "required_code_scanning_alerts_threshold" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "The severity level at which code scanning results that raise alerts block a reference update. Can be one of: none, errors, errors_and_warnings, all"
 }
 
 variable "required_code_scanning_security_alerts_threshold" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: none, critical, high_or_higher, medium_or_higher, all"
 }
 
 variable "required_code_scanning_tool" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "The name of a code scanning tool"
 }
 

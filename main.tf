@@ -157,19 +157,30 @@ resource "github_repository_ruleset" "branches" {
       for_each = var.release_branch_pattern != null ? [1] : []
       content {
         name     = "Release branches"
-        operator = var.release_branch_operator
         pattern  = var.release_branch_pattern
+        operator = var.release_branch_operator
       }
     }
 
-    # merge_queue {}
+    dynamic "merge_queue" {
+      for_each = var.merge_queue ? [1] : []
+      content {
+        check_response_timeout_minutes    = var.merge_queue_check_response_timeout_minutes
+        grouping_strategy                 = var.merge_queue_grouping_strategy
+        max_entries_to_build              = var.merge_queue_max_entries_to_build
+        max_entries_to_merge              = var.merge_queue_max_entries_to_merge
+        merge_method                      = var.merge_queue_merge_method
+        min_entries_to_merge              = var.merge_queue_min_entries_to_merge
+        min_entries_to_merge_wait_minutes = var.merge_queue_min_entries_to_merge_wait_minutes
+      }
+    }
 
     dynamic "required_code_scanning" {
       for_each = var.required_code_scanning_alerts_threshold != null || var.required_code_scanning_security_alerts_threshold != null || var.required_code_scanning_tool != null ? [1] : []
       content {
         required_code_scanning_tool {
-          tool = var.required_code_scanning_tool
-          alerts_threshold = var.required_code_scanning_alerts_threshold
+          tool                      = var.required_code_scanning_tool
+          alerts_threshold          = var.required_code_scanning_alerts_threshold
           security_alerts_threshold = var.required_code_scanning_security_alerts_threshold
         }
       }
