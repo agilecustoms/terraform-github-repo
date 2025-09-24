@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.11.0...v0.12.0) (2025-09-24)
+
+### Features
+
+* add merge_queue support ([6fe15c1](https://github.com/agilecustoms/terraform-github-repo/commit/6fe15c1b8e6ec7b3b2bce31ae2ff89440cea811f))
+
+
 ## [0.11.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.10.0...v0.11.0) (2025-09-24)
 
 ### Features
