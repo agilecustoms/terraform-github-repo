@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.8.0...v0.9.0) (2025-09-24)
+
+### Features
+
+* simplify has_discussions and has_issues contract ([e5474a8](https://github.com/agilecustoms/terraform-github-repo/commit/e5474a884af110a5eaaaff5957f1203484f77eab))
+
+
 ## [0.8.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.7.0...v0.8.0) (2025-09-24)
 
 ### Features
