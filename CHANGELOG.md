@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.7.0...v0.8.0) (2025-09-24)
+
+### Features
+
+* finalize github_repository params ([537673e](https://github.com/agilecustoms/terraform-github-repo/commit/537673e4b378d19947d337adb52d0c1dc8164573))
+
+
 ## [0.7.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.6.2...v0.7.0) (2025-09-24)
 
 ### Features
