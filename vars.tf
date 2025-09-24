@@ -89,13 +89,13 @@ variable "gitignore_template" {
 
 variable "has_discussions" {
   type        = bool
-  default     = null # true if visibility=public, false otherwise
+  default     = null
   description = "Set to true to enable the GitHub Discussions on the repository"
 }
 
 variable "has_issues" {
   type        = bool
-  default     = null # true if visibility=public, false otherwise
+  default     = null
   description = "Set to true to enable the GitHub Issues features on the repository"
 }
 

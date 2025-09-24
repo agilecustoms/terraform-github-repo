@@ -10,8 +10,8 @@ resource "github_repository" "repo" {
   delete_branch_on_merge                  = var.delete_branch_on_merge
   description                             = var.description
   gitignore_template                      = var.gitignore_template
-  has_discussions                         = var.has_discussions != null ? var.has_discussions : var.visibility == "public"
-  has_issues                              = var.has_issues != null ? var.has_issues : var.visibility == "public"
+  has_discussions                         = var.has_discussions
+  has_issues                              = var.has_issues
   has_projects                            = var.has_projects
   has_wiki                                = var.has_wiki
   homepage_url                            = var.homepage_url
