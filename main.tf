@@ -99,11 +99,13 @@ resource "github_repository_file" "codeowners" {
   branch              = github_branch.default.branch
   file                = ".github/CODEOWNERS"
   content             = ".github/ @${join(" @", var.reviewers_github)}\n"
-  commit_message      = "Admins must approve any changes in .github dir"
+  commit_author       = var.commit_author
+  commit_email        = var.commit_email
+  commit_message      = var.codeowners_commit_message
   overwrite_on_create = false
 
   lifecycle {
-    ignore_changes = [content] # any changes is EVOLUTION, so no need to overwrite existing file
+    ignore_changes = [content] # it is fine to evolve this file over time
   }
 }
 
@@ -114,7 +116,7 @@ resource "github_repository_ruleset" "branches" {
   name        = "Branches"
   repository  = github_repository.repo.name
   target      = "branch"
-  enforcement = "active"
+  enforcement = var.ruleset_enforcement
 
   dynamic "bypass_actors" {
     for_each = var.bypass_actors
@@ -125,17 +127,24 @@ resource "github_repository_ruleset" "branches" {
     }
   }
 
-  conditions {
-    ref_name {
-      include = formatlist("refs/heads/%s", var.release_branches) # convert ["main", "next"] to ["refs/heads/main", "refs/heads/next"].
-      exclude = []
+  dynamic "conditions" {
+    for_each = var.release_branch_pattern == null ? [1] : []
+    content {
+      ref_name {
+        include = formatlist("refs/heads/%s", var.release_branches) # convert ["main", "next"] to ["refs/heads/main", "refs/heads/next"].
+        exclude = []
+      }
     }
   }
 
   rules {
     creation         = true
+    update           = true
     deletion         = true
     non_fast_forward = true # no force push
+
+    required_linear_history = var.required_linear_history
+    required_signatures     = var.required_signatures
 
     pull_request {
       require_code_owner_review         = var.require_code_owner_review
@@ -143,6 +152,18 @@ resource "github_repository_ruleset" "branches" {
       required_approving_review_count   = var.required_approving_review_count
       required_review_thread_resolution = var.required_review_thread_resolution
     }
+
+    dynamic "branch_name_pattern" {
+      for_each = var.release_branch_pattern != null ? [1] : []
+      content {
+        name     = "Release branches"
+        operator = var.release_branch_operator
+        pattern  = var.release_branch_pattern
+      }
+    }
+
+    # merge_queue {}
+    # required_code_scanning {}
   }
 }
 
@@ -150,7 +171,7 @@ resource "github_repository_ruleset" "tags" {
   name        = "Tags"
   repository  = github_repository.repo.name
   target      = "tag"
-  enforcement = "active"
+  enforcement = var.ruleset_enforcement
 
   dynamic "bypass_actors" {
     for_each = var.bypass_actors

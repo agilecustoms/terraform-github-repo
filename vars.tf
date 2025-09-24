@@ -64,6 +64,24 @@ variable "bypass_actors" {
   description = "actor_id => actor (role, team or app). Actors allowed to bypass branch/tag protection rules to make automated commit with version bump in release workflows"
 }
 
+variable "commit_author" {
+  type        = string
+  default     = null
+  description = "Committer author name to use. NOTE: GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This maybe useful when a branch protection rule requires signed commits"
+}
+
+variable "commit_email" {
+  type        = string
+  default     = null
+  description = "Committer email address to use. NOTE: GitHub app users may omit author and email information so GitHub can verify commits as the GitHub App. This may be useful when a branch protection rule requires signed commits"
+}
+
+variable "codeowners_commit_message" {
+  type        = string
+  default     = "Admins must approve any changes in .github dir"
+  description = ""
+}
+
 variable "delete_branch_on_merge" {
   type        = bool
   default     = true
@@ -176,6 +194,18 @@ variable "pages_source_path" {
   description = "The repository directory from which the site publishes"
 }
 
+variable "release_branch_pattern" {
+  type        = string
+  default     = null
+  description = "Alternative to release_branches. Only works for Enterprise. If specified, the release_branches ignored. Must also specify release_branch_operator"
+}
+
+variable "release_branch_operator" {
+  type        = string
+  default     = null
+  description = "The operator to use for matching. Can be one of: starts_with, ends_with, contains, regex"
+}
+
 variable "release_branches" {
   type        = list(string)
   default     = ["main", "next"]
@@ -205,6 +235,12 @@ variable "require_last_push_approval" {
   description = "Whether the most recent reviewable push must be approved by someone other than the person who pushed it"
 }
 
+variable "required_linear_history" {
+  type        = bool
+  default     = null
+  description = "Prevent merge commits from being pushed to matching branches"
+}
+
 variable "required_approving_review_count" {
   type        = number
   default     = 1
@@ -217,6 +253,12 @@ variable "required_review_thread_resolution" {
   description = "All conversations on code must be resolved before a pull request can be merged"
 }
 
+variable "required_signatures" {
+  type        = bool
+  default     = null
+  description = "Commits pushed to matching branches must have verified signatures"
+}
+
 variable "reviewers_github" {
   type        = list(string)
   description = <<EOT
@@ -226,6 +268,12 @@ Notes:
 2. It is recommended to use a team name, not specific users (team needs to be visible, no secret)
 3. team/users need to have write access to the repository
 EOT
+}
+
+variable "ruleset_enforcement" {
+  type        = string
+  default     = "active"
+  description = "Possible values for Enforcement are disabled, active, evaluate. Note: evaluate is currently only supported for owners of type organization"
 }
 
 variable "security_and_analysis_advanced_security_status" {
