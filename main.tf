@@ -163,7 +163,17 @@ resource "github_repository_ruleset" "branches" {
     }
 
     # merge_queue {}
-    # required_code_scanning {}
+
+    dynamic "required_code_scanning" {
+      for_each = var.required_code_scanning_alerts_threshold != null || var.required_code_scanning_security_alerts_threshold != null || var.required_code_scanning_tool != null ? [1] : []
+      content {
+        required_code_scanning_tool {
+          tool = var.required_code_scanning_tool
+          alerts_threshold = var.required_code_scanning_alerts_threshold
+          security_alerts_threshold = var.required_code_scanning_security_alerts_threshold
+        }
+      }
+    }
   }
 }
 

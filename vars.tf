@@ -235,6 +235,24 @@ variable "require_last_push_approval" {
   description = "Whether the most recent reviewable push must be approved by someone other than the person who pushed it"
 }
 
+variable "required_code_scanning_alerts_threshold" {
+  type = string
+  default = null
+  description = "The severity level at which code scanning results that raise alerts block a reference update. Can be one of: none, errors, errors_and_warnings, all"
+}
+
+variable "required_code_scanning_security_alerts_threshold" {
+  type = string
+  default = null
+  description = "The severity level at which code scanning results that raise security alerts block a reference update. Can be one of: none, critical, high_or_higher, medium_or_higher, all"
+}
+
+variable "required_code_scanning_tool" {
+  type = string
+  default = null
+  description = "The name of a code scanning tool"
+}
+
 variable "required_linear_history" {
   type        = bool
   default     = null
