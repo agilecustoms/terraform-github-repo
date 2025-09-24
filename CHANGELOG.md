@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.9.0...v0.10.0) (2025-09-24)
+
+### Features
+
+* expose some more default vars ([d6baf15](https://github.com/agilecustoms/terraform-github-repo/commit/d6baf1569e590b1bb70db2c0288e5e70160f7894))
+
+
 ## [0.9.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.8.0...v0.9.0) (2025-09-24)
 
 ### Features
