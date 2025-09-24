@@ -14,6 +14,24 @@ variable "allow_auto_merge" {
   description = "allow auto-merging pull requests on the repository"
 }
 
+variable "allow_merge_commit" {
+  type        = bool
+  default     = true
+  description = "Set to false to disable merge commits on the repository"
+}
+
+variable "allow_rebase_merge" {
+  type        = bool
+  default     = true
+  description = "Set to false to disable rebase merges on the repository"
+}
+
+variable "allow_squash_merge" {
+  type        = bool
+  default     = true
+  description = "Set to false to disable squash merges on the repository."
+}
+
 variable "allow_update_branch" {
   type    = bool
   default = true
@@ -23,6 +41,12 @@ variable "archive_on_destroy" {
   type        = bool
   default     = true
   description = "archive the repository instead of deleting on destroy"
+}
+
+variable "archived" {
+  type        = bool
+  default     = false
+  description = "Specifies if the repository should be archived. Defaults to false. NOTE Currently, the API does not support unarchiving"
 }
 
 variable "auto_init" {
@@ -46,12 +70,20 @@ variable "delete_branch_on_merge" {
 }
 
 variable "default_branch" {
+  type        = string
   default     = "main"
   description = "This branch will be created and marked as default for the repo"
 }
 
 variable "description" {
+  type        = string
   description = "A description of the repository"
+}
+
+variable "gitignore_template" {
+  type        = string
+  default     = null
+  description = "Use the name of the template without the extension. For example, Haskell"
 }
 
 variable "has_discussions" {
@@ -64,7 +96,50 @@ variable "has_issues" {
   default = null # true if visibility=public, false otherwise
 }
 
+variable "has_projects" {
+  type    = string
+  default = null
+}
+
+variable "has_wiki" {
+  type        = bool
+  default     = false
+  description = "Set to true to enable the GitHub Wiki features on the repository"
+}
+
+variable "homepage_url" {
+  type        = string
+  default     = null
+  description = "URL of a page describing the project"
+}
+
+variable "is_template" {
+  type        = bool
+  default     = false
+  description = "Set to true to tell GitHub that this is a template repository"
+}
+
+variable "license_template" {
+  type        = string
+  default = null
+  description = "Use the name of the template without the extension. For example, mit or mpl-2.0"
+}
+
+variable "merge_commit_message" {
+  type        = string
+  default     = null
+  description = "Can be PR_BODY, PR_TITLE, or BLANK for a default merge commit message. Applicable only if allow_merge_commit is true"
+}
+
+variable "merge_commit_title" {
+  type        = string
+  default     = null
+  description = "Can be PR_TITLE or MERGE_MESSAGE for a default merge commit title. Applicable only if allow_merge_commit is true"
+}
+
 variable "name" {
+  type        = string
+  default     = null
   description = "Repository name"
 }
 
@@ -120,6 +195,42 @@ Notes:
 EOT
 }
 
+variable "squash_merge_commit_message" {
+  type        = string
+  default     = null
+  description = "Can be PR_BODY, COMMIT_MESSAGES, or BLANK for a default squash merge commit message. Applicable only if allow_squash_merge is true"
+}
+
+variable "squash_merge_commit_title" {
+  type        = string
+  default     = null
+  description = "Can be PR_TITLE or COMMIT_OR_PR_TITLE for a default squash merge commit title. Applicable only if allow_squash_merge is true"
+}
+
+variable "template_owner" {
+    type        = string
+    default     = null
+    description = "The GitHub organization or user the template repository is owned by"
+}
+
+variable "template_repository" {
+  type = string
+  default = null
+  description = "The name of the template repository"
+}
+
+variable "template_include_all_branches" {
+  type = string
+  default = false
+  description = "Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template)"
+}
+
+variable "topics" {
+  type        = list(string)
+  default     = []
+  description = "The list of topics of the repository"
+}
+
 variable "visibility" {
   type    = string
   default = "private"
@@ -127,4 +238,10 @@ variable "visibility" {
     condition     = contains(["public", "private", "internal"], var.visibility)
     error_message = "Visibility must be one of: public, private, internal"
   }
+}
+
+variable "web_commit_signoff_required" {
+  type        = bool
+  default     = false
+  description = "Require contributors to sign off on web-based commits"
 }
