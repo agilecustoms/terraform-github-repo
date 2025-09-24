@@ -33,8 +33,9 @@ variable "allow_squash_merge" {
 }
 
 variable "allow_update_branch" {
-  type    = bool
-  default = true
+  type        = bool
+  default     = true
+  description = "Set to true to always suggest updating pull request branches"
 }
 
 variable "archive_on_destroy" {
@@ -56,11 +57,11 @@ variable "auto_init" {
 }
 
 variable "bypass_actors" {
-  type        = map(string)
-  description = "actor_id => actor (role, team or app). Actors allowed to bypass branch/tag protection rules to make automated commit with version bump in release workflows"
+  type = map(string)
   default = {
     "0" = "OrganizationAdmin" # Documentation says it is 1, but if set to 1, it always detects changes
   }
+  description = "actor_id => actor (role, team or app). Actors allowed to bypass branch/tag protection rules to make automated commit with version bump in release workflows"
 }
 
 variable "delete_branch_on_merge" {
@@ -87,18 +88,21 @@ variable "gitignore_template" {
 }
 
 variable "has_discussions" {
-  type    = bool
-  default = null # true if visibility=public, false otherwise
+  type        = bool
+  default     = null # true if visibility=public, false otherwise
+  description = "Set to true to enable the GitHub Discussions on the repository"
 }
 
 variable "has_issues" {
-  type    = bool
-  default = null # true if visibility=public, false otherwise
+  type        = bool
+  default     = null # true if visibility=public, false otherwise
+  description = "Set to true to enable the GitHub Issues features on the repository"
 }
 
 variable "has_projects" {
-  type    = string
-  default = null
+  type        = string
+  default     = null
+  description = "Set to true to enable the GitHub Projects features on the repository"
 }
 
 variable "has_wiki" {
@@ -113,6 +117,12 @@ variable "homepage_url" {
   description = "URL of a page describing the project"
 }
 
+variable "ignore_vulnerability_alerts_during_read" {
+  type        = bool
+  default     = null
+  description = "Set to true to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read"
+}
+
 variable "is_template" {
   type        = bool
   default     = false
@@ -121,7 +131,7 @@ variable "is_template" {
 
 variable "license_template" {
   type        = string
-  default = null
+  default     = null
   description = "Use the name of the template without the extension. For example, mit or mpl-2.0"
 }
 
@@ -139,8 +149,31 @@ variable "merge_commit_title" {
 
 variable "name" {
   type        = string
-  default     = null
   description = "Repository name"
+}
+
+variable "pages_build_type" {
+  type        = string
+  default     = null
+  description = "The type of GitHub Pages site to build. Can be legacy or workflow. If you use legacy as build type you need to set the option source"
+}
+
+variable "pages_cname" {
+  type        = string
+  default     = null
+  description = "The custom domain for the repository. This can only be set after the repository has been created"
+}
+
+variable "pages_source_branch" {
+  type        = string
+  default     = null
+  description = "The repository branch used to publish the site's source files. (i.e. main or gh-pages"
+}
+
+variable "pages_source_path" {
+  type        = string
+  default     = "/"
+  description = "The repository directory from which the site publishes"
 }
 
 variable "release_branches" {
@@ -195,6 +228,24 @@ Notes:
 EOT
 }
 
+variable "security_and_analysis_advanced_security_status" {
+  type        = string
+  default     = null
+  description = "Set to enabled to enable advanced security features on the repository. Can be enabled or disabled"
+}
+
+variable "security_and_analysis_secret_scanning_push_protection_status" {
+  type        = string
+  default     = null
+  description = "Set to enabled to enable secret scanning push protection on the repository. Can be enabled or disabled. If set to enabled, the repository's visibility must be public or security_and_analysis_advanced_security_status must also be set to enabled"
+}
+
+variable "security_and_analysis_secret_scanning_status" {
+  type        = string
+  default     = null
+  description = "Set to enabled to enable secret scanning on the repository. Can be enabled or disabled. If set to enabled, the repository's visibility must be public or security_and_analysis_.advanced_security_status must also be set to enabled"
+}
+
 variable "squash_merge_commit_message" {
   type        = string
   default     = null
@@ -208,36 +259,43 @@ variable "squash_merge_commit_title" {
 }
 
 variable "template_owner" {
-    type        = string
-    default     = null
-    description = "The GitHub organization or user the template repository is owned by"
+  type        = string
+  default     = null
+  description = "The GitHub organization or user the template repository is owned by"
 }
 
 variable "template_repository" {
-  type = string
-  default = null
+  type        = string
+  default     = null
   description = "The name of the template repository"
 }
 
 variable "template_include_all_branches" {
-  type = string
-  default = false
+  type        = string
+  default     = false
   description = "Whether the new repository should include all the branches from the template repository (defaults to false, which includes only the default branch from the template)"
 }
 
 variable "topics" {
   type        = list(string)
-  default     = []
+  default     = null
   description = "The list of topics of the repository"
 }
 
 variable "visibility" {
-  type    = string
-  default = "private"
+  type        = string
+  default     = "private"
+  description = "Repository visibility: public, private or internal"
   validation {
     condition     = contains(["public", "private", "internal"], var.visibility)
     error_message = "Visibility must be one of: public, private, internal"
   }
+}
+
+variable "vulnerability_alerts" {
+  type        = bool
+  default     = null
+  description = "Set to true to enable security alerts for vulnerable dependencies. Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See GitHub Documentation for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings"
 }
 
 variable "web_commit_signoff_required" {
