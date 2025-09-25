@@ -109,6 +109,7 @@ resource "github_repository_file" "codeowners" {
   }
 }
 
+// do not use legacy "github_branch_protection"
 resource "github_repository_ruleset" "branches" {
   # First create CODEOWNERS file, then protect branches
   depends_on = [github_repository_file.codeowners]
