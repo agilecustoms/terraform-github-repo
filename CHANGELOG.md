@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.0...v0.12.1) (2025-09-25)
+
+### Miscellaneous
+
+* tighten github_repository_environment ([4e8373b](https://github.com/agilecustoms/terraform-github-repo/commit/4e8373b3241407849a3751ad08d6e2f0c8fa43cc))
+
+
 ## [0.12.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.11.0...v0.12.0) (2025-09-24)
 
 ### Features
