@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.2](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.1...v0.12.2) (2025-09-27)
+
+### Bug Fixes
+
+* deployment_branch_policy property combination ([3f4d7ee](https://github.com/agilecustoms/terraform-github-repo/commit/3f4d7ee54f99fa99416a14b7d5a98c7fb620cffa))
+
+
 ## [0.12.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.0...v0.12.1) (2025-09-25)
 
 ### Miscellaneous
