@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.4...v0.13.0) (2025-09-27)
+
+### Features
+
+* change allow_update_branch default value ([226ac43](https://github.com/agilecustoms/terraform-github-repo/commit/226ac4317aa5109e629d90e4fe8ff58402f8f271))
+
+
 ## [0.12.4](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.3...v0.12.4) (2025-09-27)
 
 ### Documentation
