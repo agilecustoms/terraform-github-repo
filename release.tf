@@ -3,8 +3,8 @@ resource "github_repository_environment" "release" {
   repository  = github_repository.repo.name
   environment = "release"
   deployment_branch_policy {
-    protected_branches     = true # must be protected either by "github_repository_ruleset" or (legacy) "github_branch_protection"
-    custom_branch_policies = true # basically delegate to "github_repository_environment_deployment_policy"
+    protected_branches     = false # must false when 'custom_branch_policies' is true
+    custom_branch_policies = true # meaning: delegate to "github_repository_environment_deployment_policy"
   }
 }
 
