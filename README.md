@@ -1,4 +1,32 @@
-# Repo
+# terraform-github-repo
+
+## Overview
+
+## Highlights
+
+Create GitHub repository with security best practices:
+- main branch protected, changes only via PR
+- developers can not create/modify/delete tags
+- `release` environment accessible only from `release_branches`.
+- `release` environment gets a secret with GitHub PAT to allow automated commit/tag during release workflow
+- admins must approve any changes in `.github` (to protect leaks of secrets in workflows)
+
+## Usage
+
+```hcl
+module "repo_publish_s3" {
+  source = "agilecustoms/github-repo/github"
+
+  name             = "repo-name"
+  description      = "Repo description"
+  visibility       = "private" # default
+  release_branches = ["main", "next"] # default
+  reviewers_github = ["<gh-org-name>/ci-admins"]
+  release_environment_secrets = {
+    GH_TOKEN = var.gh_token
+  }
+}
+```
 
 In public repos after creation do these manual steps:
 1. Security tab > enable "Private vulnerability reporting"
