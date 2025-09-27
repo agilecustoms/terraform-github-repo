@@ -34,7 +34,7 @@ variable "allow_squash_merge" {
 
 variable "allow_update_branch" {
   type        = bool
-  default     = true
+  default     = null
   description = "Set to true to always suggest updating pull request branches"
 }
 
