@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.3](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.2...v0.12.3) (2025-09-27)
+
+### Miscellaneous
+
+* unify build workflow ([04a7f56](https://github.com/agilecustoms/terraform-github-repo/commit/04a7f56b294e60f79cc2ac155741a135676f8dba))
+
+
 ## [0.12.2](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.1...v0.12.2) (2025-09-27)
 
 ### Bug Fixes
