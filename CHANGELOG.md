@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.12.4](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.3...v0.12.4) (2025-09-27)
+
+### Documentation
+
+* highlights and usage ([f2aefa3](https://github.com/agilecustoms/terraform-github-repo/commit/f2aefa31dfd0b5afe3100d383d28de39e745d995))
+
+
 ## [0.12.3](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.2...v0.12.3) (2025-09-27)
 
 ### Miscellaneous
