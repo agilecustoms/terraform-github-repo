@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.0...v0.13.1) (2025-09-28)
+
+### Bug Fixes
+
+* reviewers_github in case if CODEOWNERS already exist ([5e33e68](https://github.com/agilecustoms/terraform-github-repo/commit/5e33e685c6a7d3b3d9e43eda5b0e5392d776edf9))
+
+
 ## [0.13.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.12.4...v0.13.0) (2025-09-27)
 
 ### Features
