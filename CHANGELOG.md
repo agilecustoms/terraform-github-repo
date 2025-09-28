@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.3](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.2...v0.13.3) (2025-09-28)
+
+### Bug Fixes
+
+* remove auto_init var, false value is always wrong, only true should be ([9601ddb](https://github.com/agilecustoms/terraform-github-repo/commit/9601ddbac30ea82032bc7a99a5e32430a18d737e))
+
+
 ## [0.13.2](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.1...v0.13.2) (2025-09-28)
 
 ### Miscellaneous
