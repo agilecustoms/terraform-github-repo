@@ -78,7 +78,7 @@ variable "commit_email" {
 
 variable "codeowners_commit_message" {
   type        = string
-  default     = "Admins must approve any changes in .github dir"
+  default     = "Admins must approve any changes in .github dir [skip ci]"
   description = ""
 }
 
@@ -268,7 +268,12 @@ variable "release_environment" {
 
 variable "release_environment_secrets" {
   type        = map(string)
+  default     = null
   description = "secrets key => value. secrets to be placed in 'release' environment. Example: { GH_TOKEN = var.github_token }"
+  validation {
+    condition     = var.release_environment == false || var.release_environment_secrets != null
+    error_message = "If release_environment is true, release_environment_secrets must not be null."
+  }
 }
 
 variable "require_code_owner_review" {
