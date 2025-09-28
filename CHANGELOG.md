@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.2](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.1...v0.13.2) (2025-09-28)
+
+### Miscellaneous
+
+* codeowners commit should not trigger build ([f40ce6e](https://github.com/agilecustoms/terraform-github-repo/commit/f40ce6e9fb4a8607e8273add86c1509d6464560c))
+
+
 ## [0.13.1](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.0...v0.13.1) (2025-09-28)
 
 ### Bug Fixes
