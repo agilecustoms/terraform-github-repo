@@ -50,12 +50,6 @@ variable "archived" {
   description = "Specifies if the repository should be archived. Defaults to false. NOTE Currently, the API does not support unarchiving"
 }
 
-variable "auto_init" {
-  type        = bool
-  default     = true
-  description = "produce an initial commit in the repository"
-}
-
 variable "bypass_actors" {
   type = map(string)
   default = {

@@ -6,7 +6,7 @@ resource "github_repository" "repo" {
   allow_update_branch                     = var.allow_update_branch
   archive_on_destroy                      = var.archive_on_destroy # it doesn't respect lifecycle.prevent_destroy property :(
   archived                                = var.archived
-  auto_init                               = var.auto_init # required to create a branch
+  auto_init                               = true # required to create a branch, makes no difference if repo already exists
   delete_branch_on_merge                  = var.delete_branch_on_merge
   description                             = var.description
   gitignore_template                      = var.gitignore_template
