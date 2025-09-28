@@ -327,13 +327,7 @@ variable "required_signatures" {
 
 variable "reviewers_github" {
   type        = list(string)
-  description = <<EOT
-List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files.
-Notes:
-1. Changes in CODEOWNERS file are not managed after initial creation
-2. It is recommended to use a team name, not specific users (team needs to be visible, no secret)
-3. team/users need to have write access to the repository
-EOT
+  description = "List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files. Recommended to use a team, but can be individual users. Empty array to skip .github/ reviewers. Do not override CODEOWNERS if it already exist. Future changes in CODEOWNERS do not cause drift detection"
 }
 
 variable "ruleset_enforcement" {

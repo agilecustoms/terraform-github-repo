@@ -14,10 +14,10 @@ Create GitHub repository with security best practices:
 ## Usage
 
 ```hcl
-module "repo_publish_s3" {
+module "repo_my_app" {
   source = "agilecustoms/github-repo/github"
 
-  name             = "repo-name"
+  name             = "my-app"
   description      = "Repo description"
   visibility       = "private" # default
   release_branches = ["main", "next"] # default
@@ -26,6 +26,13 @@ module "repo_publish_s3" {
     GH_TOKEN = var.gh_token
   }
 }
+```
+
+If you want to start managing an existing repo, import it first:
+```shell
+terraform import 'module.repo_my_app.github_repository.repo' my-app
+# if there is already a CODEOWNERS file in the repo, import it too:
+terraform import 'module.repo_my_app.github_repository_file.codeowners[0]' my-app/.github/CODEOWNERS
 ```
 
 In public repos after creation do these manual steps:
@@ -109,7 +116,7 @@ No modules.
 | required_approving_review_count         | 1                             | The number of approving reviews that are required before a pull request can be merged                                                                                                                                                                                                                                                                                                                                          |
 | required_review_thread_resolution       | _true_                        | All conversations on code must be resolved before a pull request can be merged                                                                                                                                                                                                                                                                                                                                                 |
 | required_signatures                     | _true_                        | Commits pushed to matching branches must have verified signatures                                                                                                                                                                                                                                                                                                                                                              |
-| **reviewers_github**                    |                               | CODEOWNERS for files in `.github/`. Recommended to use a team, but can be individual users. Empty array to skip `.github` reviewers                                                                                                                                                                                                                                                                                            |
+| **reviewers_github**                    |                               | List of GitHub usernames (or teams) to add as `CODEOWNERS` for `.github/` files. Recommended to use a team, but can be individual users. Empty array to skip `.github/` reviewers. Do not override `CODEOWNERS` if it already exist. Future changes in `CODEOWNERS` do not cause drift detection                                                                                                                               |
 | ruleset_enforcement                     | active                        | Possible values for Enforcement are `disabled`, `active`, `evaluate`. Note: `evaluate` is currently only supported for owners of type `organization`                                                                                                                                                                                                                                                                           |
 | squash_merge_commit_message             |                               | Can be `PR_BODY`, `COMMIT_MESSAGES`, or `BLANK` for a default squash merge commit message. Applicable only if `allow_squash_merge` is `true`                                                                                                                                                                                                                                                                                   |
 | squash_merge_commit_title               |                               | Can be `PR_TITLE` or `COMMIT_OR_PR_TITLE` for a default squash merge commit title. Applicable only if `allow_squash_merge` is `true`                                                                                                                                                                                                                                                                                           |

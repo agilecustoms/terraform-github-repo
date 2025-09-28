@@ -105,7 +105,7 @@ resource "github_repository_file" "codeowners" {
   overwrite_on_create = false
 
   lifecycle {
-    ignore_changes = [content] # it is fine to evolve this file over time
+    ignore_changes = [branch, content, commit_message] # it is fine to evolve this file over time
   }
 }
 
