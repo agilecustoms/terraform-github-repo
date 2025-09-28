@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.4](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.3...v0.13.4) (2025-09-28)
+
+### Documentation
+
+* add comment in vulnerability_alerts ([9693bcc](https://github.com/agilecustoms/terraform-github-repo/commit/9693bcc2a3d9050a141b03442d3688a42a1f2d54))
+
+
 ## [0.13.3](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.2...v0.13.3) (2025-09-28)
 
 ### Bug Fixes
