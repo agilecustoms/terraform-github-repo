@@ -1,14 +1,18 @@
-# terraform-github-repo
+# About
 
-## Overview
+Creates a GitHub repository with _release_ environment and protected branches that can access secrets in this environment.
+This is an ideal setup for most repositories that follow PR-based development with automated releases from protected branches.
+Works best with GitHub action [agilecustoms/release](https://github.com/agilecustoms/release)
+
+![Cover](docs/images/cover.png)
 
 ## Highlights
 
-Create GitHub repository with security best practices:
-- main branch protected, changes only via PR
-- developers can not create/modify/delete tags
-- `release` environment accessible only from `release_branches`.
-- `release` environment gets a secret with GitHub PAT to allow automated commit/tag during release workflow
+Create a GitHub repository with security best practices:
+- default branch (`main` by default)
+- `release` environment - hold secrets used in release workflow (when you create version and publish it)
+- release branches — branches that have access to `release` environment (`main` by default)
+- developers cannot create/modify/delete tags (to protect release tags)
 - admins must approve any changes in `.github` (to protect leaks of secrets in workflows)
 
 ## Usage
@@ -20,9 +24,10 @@ module "repo_my_app" {
   name             = "my-app"
   description      = "Repo description"
   visibility       = "private" # default
-  release_branches = ["main", "next"] # default
+  release_branches = ["main", "next", "legacy"] # default is ["main"]
   reviewers_github = ["<gh-org-name>/ci-admins"] # here ci-admins is an example, can be any team(s) or user(s)
   release_environment_secrets = {
+    # any secrets to access artifact store, plus GH PAT to make automated commit/tag during release workflow
     GH_TOKEN = var.gh_token
   }
 
@@ -31,16 +36,12 @@ module "repo_my_app" {
 }
 ```
 
-If you want to start managing an existing repo, import it first:
+To start managing an existing repo, import it first:
 ```shell
 terraform import 'module.repo_my_app.github_repository.repo' my-app
 # if there is already a CODEOWNERS file in the repo, import it too:
 terraform import 'module.repo_my_app.github_repository_file.codeowners[0]' my-app/.github/CODEOWNERS
 ```
-
-In public repos after creation do these manual steps:
-1. Security tab > enable "Private vulnerability reporting"
-2. Code > Watch > Custom > make sure "Security alerts" is enabled OR "All activity" if you want to get all notifications
 
 
 ## Requirements
@@ -111,7 +112,7 @@ Important inputs are marked with **bold**. The rest should be good by default
 | **name**                                |                               | Repository name                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | release_branch_pattern                  |                               | Alternative to `release_branches`. Only works for Enterprise. If specified, the `release_branches` ignored. Must also specify `release_branch_operator`                                                                                                                                                                                                                                                                                                                    |
 | release_branch_operator                 |                               | The operator to use for matching. Can be one of: `starts_with`, `ends_with`, `contains`, `regex`                                                                                                                                                                                                                                                                                                                                                                           |
-| **release_branches**                    | \[main, next]                 | Protected branches that take changes only via PRs. Get 'release' environment associated — to access GitHub PAT to make automated commit/tag during release workflow. Branches in this list not have to exist at the moment of this terraform module creation                                                                                                                                                                                                               |
+| **release_branches**                    | \[main]                       | Protected branches that take changes only via PRs. Get 'release' environment associated — to access GitHub PAT to make automated commit/tag during release workflow. Branches in this list not have to exist at the moment of this terraform module creation                                                                                                                                                                                                               |
 | **release_environment**                 | _true_                        | Create 'release' environment - primarily to store GH_TOKEN PAT that can bypass branch/tag protection rules to make automated commit/tag during release workflow                                                                                                                                                                                                                                                                                                            |
 | **release_environment_secrets**         |                               | Secrets key => value. secrets to be placed in 'release' environment. Example: `{ GH_TOKEN = var.github_token }`                                                                                                                                                                                                                                                                                                                                                            |
 | require_code_owner_review               | _true_                        | Require an approving review in pull requests that modify files that have a designated code owner                                                                                                                                                                                                                                                                                                                                                                           |

@@ -250,7 +250,7 @@ variable "release_branch_operator" {
 
 variable "release_branches" {
   type        = list(string)
-  default     = ["main", "next"]
+  default     = ["main"]
   description = "protected branches that take changes only via PRs. Get 'release' environment associated — to access GitHub PAT to make automated commit/tag during release workflow"
 }
 
