@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.14.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.5...v0.14.0) (2025-09-29)
+
+### Features
+
+* change release_branches default to be just 'main', remove 'next' ([059eef7](https://github.com/agilecustoms/terraform-github-repo/commit/059eef7a9bd53b8de09183da8f7317772ed2977a))
+
+
 ## [0.13.5](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.4...v0.13.5) (2025-09-29)
 
 ### Documentation
