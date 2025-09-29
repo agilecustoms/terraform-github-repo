@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.13.5](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.4...v0.13.5) (2025-09-29)
+
+### Documentation
+
+* usage example improved ([7f700f8](https://github.com/agilecustoms/terraform-github-repo/commit/7f700f850e19bf05a060919029c4ad1ceedbf728))
+
+
 ## [0.13.4](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.3...v0.13.4) (2025-09-28)
 
 ### Documentation
