@@ -1,3 +1,6 @@
+[![Terraform Registry](https://img.shields.io/badge/Terraform-Module-blue.svg)](https://registry.terraform.io/modules/agilecustoms/repo/github/latest)
+[![License](https://img.shields.io/github/license/agilecustoms/terraform-github-repo)](https://github.com/agilecustoms/terraform-github-repo/blob/main/LICENSE)
+
 # About
 
 Creates a GitHub repository with _release_ environment and protected branches that can access secrets in this environment.
