@@ -62,7 +62,7 @@ terraform import 'module.repo_my_app.github_repository_file.codeowners[0]' my-ap
 
 ## Modules
 
-No modules.
+No modules
 
 ## Resources
 
