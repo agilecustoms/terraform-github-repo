@@ -27,6 +27,7 @@ module "repo_my_app" {
   name             = "my-app"
   description      = "Repo description"
   visibility       = "private" # default
+  default_branch   = "main" # default
   release_branches = ["main", "next", "legacy"] # default is ["main"]
   reviewers_github = ["<gh-org-name>/ci-admins"] # here ci-admins is an example, can be any team(s) or user(s)
   release_environment_secrets = {
@@ -39,9 +40,11 @@ module "repo_my_app" {
 }
 ```
 
-To start managing an existing repo, import it first:
+To start managing an existing repo `my-app`, import it first:
 ```shell
 terraform import 'module.repo_my_app.github_repository.repo' my-app
+# if default branch is not 'main', for example 'master'
+terraform import 'module.repo_my_app.github_branch.default' my-app:master
 # if there is already a CODEOWNERS file in the repo, import it too:
 terraform import 'module.repo_my_app.github_repository_file.codeowners[0]' my-app/.github/CODEOWNERS
 ```
