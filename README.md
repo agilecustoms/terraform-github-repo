@@ -22,7 +22,7 @@ Create a GitHub repository with security best practices:
 
 ```hcl
 module "repo_my_app" {
-  source = "agilecustoms/github-repo/github"
+  source = "agilecustoms/repo/github"
 
   name             = "my-app"
   description      = "Repo description"
@@ -45,7 +45,6 @@ terraform import 'module.repo_my_app.github_repository.repo' my-app
 # if there is already a CODEOWNERS file in the repo, import it too:
 terraform import 'module.repo_my_app.github_repository_file.codeowners[0]' my-app/.github/CODEOWNERS
 ```
-
 
 ## Requirements
 
@@ -162,7 +161,6 @@ Important inputs are marked with **bold**. The rest should be good by default
 | template_owner                                               |          | The GitHub organization or user the template repository is owned by                                                                                                                                                                                                                     |
 | template_repository                                          |          | The name of the template repository                                                                                                                                                                                                                                                     |
 | template_include_all_branches                                | _false_  | Whether the new repository should include all the branches from the template repository (defaults to _false_, which includes only the default branch from the template)                                                                                                                 |
-
 
 ## Outputs
 
