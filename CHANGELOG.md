@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.1...v1.0.2) (2025-09-30)
+
+### Documentation
+
+* cover scenario when import existing repo with default branch name other than 'main' ([4592354](https://github.com/agilecustoms/terraform-github-repo/commit/459235413c35c6a9b92f829c128737aa2e0dcbee))
+
+
 ## [1.0.1](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.0...v1.0.1) (2025-09-30)
 
 ### Documentation
