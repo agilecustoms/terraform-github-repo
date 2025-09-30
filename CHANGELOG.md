@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.14.0...v1.0.0) (2025-09-30)
+
+### ⚠ BREAKING CHANGES
+
+* release
+
+### Features
+
+* release ([3b3cdbe](https://github.com/agilecustoms/terraform-github-repo/commit/3b3cdbe966a2528e0921803087fa76997113c387))
+
+### Documentation
+
+* add tags in header ([a111a5f](https://github.com/agilecustoms/terraform-github-repo/commit/a111a5f87f348ac2f143e3bdc3896645917d6e60))
+
+
 ## [0.14.0](https://github.com/agilecustoms/terraform-github-repo/compare/v0.13.5...v0.14.0) (2025-09-29)
 
 ### Features
