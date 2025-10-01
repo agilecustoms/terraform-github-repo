@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.2...v1.0.3) (2025-10-01)
+
+### Documentation
+
+* replace image path with absolute URL to properly display in Terraform registry ([0e77c96](https://github.com/agilecustoms/terraform-github-repo/commit/0e77c969a7dba2d983ae70fcf4dc4400192fb9ba))
+
+
 ## [1.0.2](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.1...v1.0.2) (2025-09-30)
 
 ### Documentation
