@@ -7,7 +7,7 @@ Creates a GitHub repository with _release_ environment and protected branches th
 This is an ideal setup for most repositories that follow PR-based development with automated releases from protected branches.
 Works best with GitHub action [agilecustoms/release](https://github.com/agilecustoms/release)
 
-![Cover](docs/images/cover.png)
+![Cover](https://raw.githubusercontent.com/agilecustoms/terraform-github-repo/main/docs/images/cover.png)
 
 ## Highlights
 
