@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.3...v1.0.4) (2025-11-06)
+
+### Bug Fixes
+
+* change main branch protection rule ([1910109](https://github.com/agilecustoms/terraform-github-repo/commit/191010977f49cb95d8d6811036cd243065ca7e3b))
+
+
 ## [1.0.3](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.2...v1.0.3) (2025-10-01)
 
 ### Documentation
