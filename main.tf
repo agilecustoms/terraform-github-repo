@@ -140,7 +140,7 @@ resource "github_repository_ruleset" "branches" {
 
   rules {
     creation         = true
-    update           = true
+    # update           = false # (default) when 'true' you can't merge a PR event with all checks passed and all approvals
     deletion         = true
     non_fast_forward = true # no force push
 

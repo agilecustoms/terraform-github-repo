@@ -402,7 +402,7 @@ variable "visibility" {
 variable "vulnerability_alerts" {
   type        = bool
   default     = null
-  description = "Set to true to enable security alerts for vulnerable dependencies (Repo tab \"Security\" > \"Dependabot alerts\"). Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See GitHub Documentation for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings"
+  description = "Set to true to enable security alerts for vulnerable dependencies (Repo tab \"Security\" > \"Dependabot alerts\"). Additionally enables \"Dependency Graph\". Enabling requires alerts to be enabled on the owner level. (Note for importing: GitHub enables the alerts on public repos but disables them on private repos by default.) See GitHub Documentation for details. Note that vulnerability alerts have not been successfully tested on any GitHub Enterprise instance and may be unavailable in those settings"
 }
 
 variable "web_commit_signoff_required" {
