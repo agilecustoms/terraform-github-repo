@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/agilecustoms/terraform-github-repo/compare/v1.1.0...v1.1.1) (2025-11-07)
+
+### Miscellaneous
+
+* rename job ([4f5513d](https://github.com/agilecustoms/terraform-github-repo/commit/4f5513d4d25d3a1bcdaacda7a57205b3147afc0c))
+
+
 ## [1.1.0](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.4...v1.1.0) (2025-11-07)
 
 ### Features
