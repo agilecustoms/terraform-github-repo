@@ -186,6 +186,20 @@ resource "github_repository_ruleset" "branches" {
         }
       }
     }
+
+    dynamic "required_status_checks" {
+      for_each = length(var.required_status_checks) > 0 ? [1] : []
+      content {
+        dynamic "required_check" {
+          for_each = var.required_status_checks
+          content {
+            context        = required_check.key
+            integration_id = required_check.value
+          }
+        }
+        strict_required_status_checks_policy = var.strict_required_status_checks_policy
+      }
+    }
   }
 }
 

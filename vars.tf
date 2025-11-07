@@ -324,6 +324,12 @@ variable "required_signatures" {
   description = "Commits pushed to matching branches must have verified signatures"
 }
 
+variable "required_status_checks" {
+  type        = map(number)
+  default     = {}
+  description = "Status checks to pass to allow PR merge (basically job names in per-commit workflow). Ex. {Build = 15368}, meaning GitHub Actions job 'Build'"
+}
+
 variable "reviewers_github" {
   type        = list(string)
   description = "List of GitHub usernames (or teams) to add as CODEOWNERS for .github/ files. Recommended to use a team, but can be individual users. Empty array to skip .github/ reviewers. Do not override CODEOWNERS if it already exist. Future changes in CODEOWNERS do not cause drift detection"
@@ -363,6 +369,12 @@ variable "squash_merge_commit_title" {
   type        = string
   default     = null
   description = "Can be PR_TITLE or COMMIT_OR_PR_TITLE for a default squash merge commit title. Applicable only if allow_squash_merge is true"
+}
+
+variable "strict_required_status_checks_policy" {
+  type        = bool
+  default     = false
+  description = "Whether GitHub will enforce that the PR branch is synchronized with the latest state of the target branch (usually main or master) before it can be merged. Only applied if required_status_checks is not empty"
 }
 
 variable "template_owner" {
