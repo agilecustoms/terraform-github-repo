@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.4...v1.1.0) (2025-11-07)
+
+### Features
+
+* required_status_checks - require certain checks to pass before PR can be merged ([f0b2004](https://github.com/agilecustoms/terraform-github-repo/commit/f0b20040e21266d9f5fdccd8f7faff7fe90d4d19))
+
+
 ## [1.0.4](https://github.com/agilecustoms/terraform-github-repo/compare/v1.0.3...v1.0.4) (2025-11-06)
 
 ### Bug Fixes
