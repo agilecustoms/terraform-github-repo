@@ -148,6 +148,7 @@ resource "github_repository_ruleset" "branches" {
     required_signatures     = var.required_signatures
 
     pull_request {
+      dismiss_stale_reviews_on_push     = var.dismiss_stale_reviews_on_push
       require_code_owner_review         = var.require_code_owner_review
       require_last_push_approval        = var.require_last_push_approval
       required_approving_review_count   = var.required_approving_review_count

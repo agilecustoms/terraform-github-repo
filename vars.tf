@@ -93,6 +93,12 @@ variable "description" {
   description = "A description of the repository"
 }
 
+variable "dismiss_stale_reviews_on_push" {
+  type        = bool
+  default     = true
+  description = "New, reviewable commits pushed will dismiss previous pull request review approvals"
+}
+
 variable "gitignore_template" {
   type        = string
   default     = null
