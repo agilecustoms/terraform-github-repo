@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/agilecustoms/terraform-github-repo/compare/v1.1.1...v1.2.0) (2025-11-09)
+
+### Features
+
+* add input 'dismiss_stale_reviews_on_push' (default true) to dismiss previous approvals if more changes were made ([dcc21f1](https://github.com/agilecustoms/terraform-github-repo/commit/dcc21f15cf893c63f9fffb7b2e29cce880bc6e4e))
+
+
 ## [1.1.1](https://github.com/agilecustoms/terraform-github-repo/compare/v1.1.0...v1.1.1) (2025-11-07)
 
 ### Miscellaneous
