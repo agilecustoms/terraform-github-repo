@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.0...v1.2.1) (2026-01-13)
+
+### Miscellaneous
+
+* use new checkout action for Build phase ([a808282](https://github.com/agilecustoms/terraform-github-repo/commit/a80828247d29ea71c1b64713311249c5b67ab989))
+
+
 ## [1.2.0](https://github.com/agilecustoms/terraform-github-repo/compare/v1.1.1...v1.2.0) (2025-11-09)
 
 ### Features
