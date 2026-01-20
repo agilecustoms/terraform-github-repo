@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.1...v1.2.2) (2026-01-20)
+
+### Miscellaneous
+
+* use actions/checkout@v6 ([62ba563](https://github.com/agilecustoms/terraform-github-repo/commit/62ba563276e9170a9501354268ee5647751d4e6b))
+
+
 ## [1.2.1](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.0...v1.2.1) (2026-01-13)
 
 ### Miscellaneous
