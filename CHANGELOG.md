@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.2...v1.2.3) (2026-02-01)
+
+### Miscellaneous
+
+* get rid of npm-extra-deps ([fa39113](https://github.com/agilecustoms/terraform-github-repo/commit/fa39113710747462c41de3533cfcddedbd9a417b))
+
+
 ## [1.2.2](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.1...v1.2.2) (2026-01-20)
 
 ### Miscellaneous
