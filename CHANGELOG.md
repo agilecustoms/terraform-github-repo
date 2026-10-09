@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.3...v1.2.4) (2026-10-09)
+
+### Miscellaneous
+
+* update GitHub actions to latest versions ([03d6e24](https://github.com/agilecustoms/terraform-github-repo/commit/03d6e2401632a2d995160a63f587907d29304826))
+
+
 ## [1.2.3](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.2...v1.2.3) (2026-02-01)
 
 ### Miscellaneous
