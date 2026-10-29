@@ -118,7 +118,7 @@ variable "has_issues" {
 }
 
 variable "has_projects" {
-  type        = string
+  type        = bool
   default     = null
   description = "Set to true to enable the GitHub Projects features on the repository"
 }
