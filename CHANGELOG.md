@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.5](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.4...v1.2.5) (2026-10-29)
+
+### Bug Fixes
+
+* allow GitHub Pages with workflow build type without source branch ([fb7e172](https://github.com/agilecustoms/terraform-github-repo/commit/fb7e1724f56e60bc936f3a50e23881577380f562))
+* correct actions_repository_access_level validation message ([ecb39b9](https://github.com/agilecustoms/terraform-github-repo/commit/ecb39b9b34f832c878176435741056e246d55b57))
+* has_projects variable type must be bool ([c1d2393](https://github.com/agilecustoms/terraform-github-repo/commit/c1d23931b088a340dca42bec8c05d88e9925d3a1))
+* require Terraform >= 1.9.0 for cross-variable validation ([98afb87](https://github.com/agilecustoms/terraform-github-repo/commit/98afb876aed91371dba2a4bc3a43ba09a6827c06))
+
+### Miscellaneous
+
+* add terraform tests ([b1d469a](https://github.com/agilecustoms/terraform-github-repo/commit/b1d469a0fb3fafa2b1c7ad3238a2af4c88111d4e))
+* rename CI step to Terraform validate [skip ci] ([e0ea9a0](https://github.com/agilecustoms/terraform-github-repo/commit/e0ea9a0b5bd367531339bac3cfc726cc8f6fa13a))
+* unify .gitignore sections [skip ci] ([063538b](https://github.com/agilecustoms/terraform-github-repo/commit/063538b8b294d5c87743a1188daad97f842226ae))
+
+
 ## [1.2.4](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.3...v1.2.4) (2026-10-09)
 
 ### Miscellaneous
