@@ -197,7 +197,6 @@ run "optional_repo_blocks" {
     template_owner                               = "acme"
     template_repository                          = "template"
     pages_build_type                             = "workflow"
-    pages_source_branch                          = "main" # module always renders pages.source, so branch is required
     security_and_analysis_secret_scanning_status = "enabled"
   }
 
@@ -207,8 +206,8 @@ run "optional_repo_blocks" {
   }
 
   assert {
-    condition     = github_repository.repo.pages[0].build_type == "workflow"
-    error_message = "pages block expected"
+    condition     = github_repository.repo.pages[0].build_type == "workflow" && length(github_repository.repo.pages[0].source) == 0
+    error_message = "pages block without source expected for workflow build type"
   }
 
   assert {
@@ -248,4 +247,18 @@ run "release_environment_requires_secrets" {
   }
 
   expect_failures = [var.release_environment_secrets]
+}
+
+run "pages_legacy" {
+  command = plan
+
+  variables {
+    pages_build_type    = "legacy"
+    pages_source_branch = "gh-pages"
+  }
+
+  assert {
+    condition     = github_repository.repo.pages[0].source[0].branch == "gh-pages" && github_repository.repo.pages[0].source[0].path == "/"
+    error_message = "pages.source expected when pages_source_branch is set"
+  }
 }

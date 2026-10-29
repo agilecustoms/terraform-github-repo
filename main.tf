@@ -42,9 +42,12 @@ resource "github_repository" "repo" {
     content {
       cname      = var.pages_cname
       build_type = var.pages_build_type
-      source {
-        branch = var.pages_source_branch
-        path   = var.pages_source_path
+      dynamic "source" {
+        for_each = var.pages_source_branch != null ? [1] : []
+        content {
+          branch = var.pages_source_branch
+          path   = var.pages_source_path
+        }
       }
     }
   }
