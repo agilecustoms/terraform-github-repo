@@ -4,7 +4,7 @@ variable "actions_repository_access_level" {
   description = "allows to set the access level of a non-public repositories actions and reusable workflows for use in other repositories"
   validation {
     condition     = var.actions_repository_access_level == null || contains(["none", "user", "organization", "enterprise"], var.actions_repository_access_level)
-    error_message = "Visibility must be one of: node, user, organization or enterprise"
+    error_message = "actions_repository_access_level must be one of: none, user, organization or enterprise"
   }
 }
 
