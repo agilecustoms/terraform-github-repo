@@ -4,8 +4,8 @@ terraform-init:
 terraform-validate:
 	@terraform validate
 
-terraform-format:
-	@terraform fmt -recursive
-
 terraform-test:
 	@terraform test
+
+terraform-format:
+	@terraform fmt -recursive
