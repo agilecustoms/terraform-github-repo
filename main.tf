@@ -112,7 +112,7 @@ resource "github_repository_file" "codeowners" {
   }
 }
 
-// do not use legacy "github_branch_protection"
+# do not use legacy "github_branch_protection"
 resource "github_repository_ruleset" "branches" {
   # First create CODEOWNERS file, then protect branches
   depends_on = [github_repository_file.codeowners]
@@ -142,7 +142,7 @@ resource "github_repository_ruleset" "branches" {
   }
 
   rules {
-    creation         = true
+    creation = true
     # update           = false # (default) when 'true' you can't merge a PR event with all checks passed and all approvals
     deletion         = true
     non_fast_forward = true # no force push

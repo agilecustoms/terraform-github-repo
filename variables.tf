@@ -73,7 +73,7 @@ variable "commit_email" {
 variable "codeowners_commit_message" {
   type        = string
   default     = "Admins must approve any changes in .github dir [skip ci]"
-  description = ""
+  description = "Commit message for the initial CODEOWNERS file"
 }
 
 variable "delete_branch_on_merge" {

@@ -4,7 +4,7 @@ resource "github_repository_environment" "release" {
   environment = "release"
   deployment_branch_policy {
     protected_branches     = false # must false when 'custom_branch_policies' is true
-    custom_branch_policies = true # meaning: delegate to "github_repository_environment_deployment_policy"
+    custom_branch_policies = true  # meaning: delegate to "github_repository_environment_deployment_policy"
   }
 }
 

@@ -1,7 +1,9 @@
 output "id" {
-  value = github_repository.repo.id
+  description = "Repository id"
+  value       = github_repository.repo.id
 }
 
 output "name" {
-  value = var.name
+  description = "Repository name"
+  value       = var.name
 }
