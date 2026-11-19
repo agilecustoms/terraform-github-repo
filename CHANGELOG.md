@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.7](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.6...v1.2.7) (2026-11-19)
+
+### Dependencies update
+
+* .releaserc.json same as gha-release: build: releases a patch, 'Dependencies update' section ([ed07e66](https://github.com/agilecustoms/terraform-github-repo/commit/ed07e66acc9e6730bec6cc96ab458dd1c4d2465e))
+* make targets lint, test-tf-validate, test-tf, deps-*; pre-commit hook runs make lint ([099586a](https://github.com/agilecustoms/terraform-github-repo/commit/099586a42fb0369af165979b4749eefcd8bdaeea))
+
+
 ## [1.2.6](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.5...v1.2.6) (2026-11-11)
 
 ### Miscellaneous
