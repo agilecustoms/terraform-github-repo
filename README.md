@@ -3,8 +3,10 @@
 
 # terraform-github-repo
 
-Creates a GitHub repository with _release_ environment and protected branches that can access secrets in this environment.
-This is an ideal setup for most repositories that follow PR-based development with automated releases from protected branches.
+Creates a GitHub repository with _release_ environment and protected branches
+that can access secrets in this environment.
+This is an ideal setup for most repositories that follow PR-based development
+with automated releases from protected branches.
 Works best with GitHub action [agilecustoms/release](https://github.com/agilecustoms/release)
 
 ![Cover](https://raw.githubusercontent.com/agilecustoms/terraform-github-repo/main/docs/images/cover.png)
