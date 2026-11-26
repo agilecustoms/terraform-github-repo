@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.8](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.7...v1.2.8) (2026-11-26)
+
+### Documentation
+
+* README structure (rule 002), AGENTS.md with internals ([174df94](https://github.com/agilecustoms/terraform-github-repo/commit/174df9423fba1c7150ee3e9ff4e099283be4979b))
+
+
 ## [1.2.7](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.6...v1.2.7) (2026-11-19)
 
 ### Dependencies update
