@@ -1,5 +1,5 @@
-[![Terraform Registry](https://img.shields.io/badge/Terraform-Module-blue.svg)](https://registry.terraform.io/modules/agilecustoms/repo/github/latest)
-[![License](https://img.shields.io/github/license/agilecustoms/terraform-github-repo)](https://github.com/agilecustoms/terraform-github-repo/blob/main/LICENSE)
+[![Terraform Registry][terraform-registry-badge]][terraform-registry]
+[![License][license-badge]][license]
 
 # terraform-github-repo
 
@@ -79,7 +79,7 @@ Important inputs are marked with **bold**. The rest should be good by default
 | **default_branch**                       | no       | main                          | This branch will be created and marked as default for the repo                                                                                                                                                                                                                                                                                                                                                                                                             |
 | **description**                          | yes      |                               | A description of the repository                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | dismiss_stale_reviews_on_push            | no       | _false_                       | New, reviewable commits pushed will dismiss previous pull request review approvals                                                                                                                                                                                                                                                                                                                                                                                         |
-| gitignore_template                       | no       |                               | Use the [name of the template](https://github.com/github/gitignore) without the extension. For example, "Haskell"                                                                                                                                                                                                                                                                                                                                                          |
+| gitignore_template                       | no       |                               | Use the [name of the template][name-of-the-template] without the extension. For example, "Haskell"                                                                                                                                                                                                                                                                                                                                                                         |
 | has_discussions                          | no       |                               | Set to true to enable the GitHub Discussions on the repository                                                                                                                                                                                                                                                                                                                                                                                                             |
 | has_issues                               | no       |                               | Set to true to enable the GitHub Issues features on the repository                                                                                                                                                                                                                                                                                                                                                                                                         |
 | has_projects                             | no       |                               | Set to _true_ to enable the GitHub Projects features on the repository                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -87,7 +87,7 @@ Important inputs are marked with **bold**. The rest should be good by default
 | homepage_url                             | no       |                               | URL of a page describing the project                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | ignore_vulnerability_alerts_during_read  | no       |                               | Set to true to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read                                                                                                                                                                                                                                                                                                                                           |
 | is_template                              | no       | _false_                       | Set to true to tell GitHub that this is a template repository                                                                                                                                                                                                                                                                                                                                                                                                              |
-| license_template                         | no       |                               | Use the [name of the template](https://github.com/github/choosealicense.com/tree/gh-pages/_licenses) without the extension. For example, "mit" or "mpl-2.0"                                                                                                                                                                                                                                                                                                                |
+| license_template                         | no       |                               | Use the [name of the template][licenses] without the extension. For example, "mit" or "mpl-2.0"                                                                                                                                                                                                                                                                                                                                                                            |
 | merge_commit_message                     | no       |                               | Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`                                                                                                                                                                                                                                                                                                                                             |
 | merge_commit_title                       | no       |                               | Can be `PR_TITLE` or `MERGE_MESSAGE` for a default merge commit title. Applicable only if `allow_merge_commit` is `true`                                                                                                                                                                                                                                                                                                                                                   |
 | merge_queue                              | no       | _false_                       | Allow to enable merge queue, see inputs with `merge_queue_` prefix                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -170,27 +170,44 @@ No modules
 
 ## Resources
 
-| Name                                                                                                                                                                                  | Type     |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| [github_repository.repo](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository)                                                                | resource |
-| [github_actions_repository_access_level.access](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_repository_access_level)                    | resource |
-| [github_branch.default](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch)                                                                     | resource |
-| [github_branch_default.it](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_default)                                                          | resource |
-| [github_repository_file.codeowners](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file)                                                | resource |
-| [github_repository_ruleset.branches](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset)                                            | resource |
-| [github_repository_ruleset.tags](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset)                                                | resource |
-| [github_repository_environment.release](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment)                                     | resource |
-| [github_actions_environment_secret.release](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_environment_secret)                             | resource |
-| [github_repository_environment_deployment_policy.release](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment_deployment_policy) | resource |
+| Name                                                                                                | Type     |
+|-----------------------------------------------------------------------------------------------------|----------|
+| [github_repository.repo][repository]                                                                | resource |
+| [github_actions_repository_access_level.access][actions-repository-access-level]                    | resource |
+| [github_branch.default][branch]                                                                     | resource |
+| [github_branch_default.it][branch-default]                                                          | resource |
+| [github_repository_file.codeowners][repository-file]                                                | resource |
+| [github_repository_ruleset.branches][repository-ruleset]                                            | resource |
+| [github_repository_ruleset.tags][repository-ruleset]                                                | resource |
+| [github_repository_environment.release][repository-environment]                                     | resource |
+| [github_actions_environment_secret.release][actions-environment-secret]                             | resource |
+| [github_repository_environment_deployment_policy.release][repository-environment-deployment-policy] | resource |
 
 ## Authors
 
-Module is maintained by [Alexey Chekulaev](https://github.com/laxa1986)
+Module is maintained by [Alexey Chekulaev][alexey-chekulaev]
 
 ## License
 
-Apache 2 Licensed. See [LICENSE](https://github.com/agilecustoms/terraform-github-repo/blob/main/LICENSE) for full details
+Apache 2 Licensed. See [LICENSE][license] for full details
 
 ## Copyright
 
-Copyright 2025 [Alexey Chekulaev](https://github.com/laxa1986)
+Copyright 2025 [Alexey Chekulaev][alexey-chekulaev]
+
+[actions-environment-secret]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_environment_secret
+[actions-repository-access-level]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_repository_access_level
+[alexey-chekulaev]: https://github.com/laxa1986
+[branch]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch
+[branch-default]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_default
+[license]: https://github.com/agilecustoms/terraform-github-repo/blob/main/LICENSE
+[license-badge]: https://img.shields.io/github/license/agilecustoms/terraform-github-repo
+[licenses]: https://github.com/github/choosealicense.com/tree/gh-pages/_licenses
+[name-of-the-template]: https://github.com/github/gitignore
+[repository]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
+[repository-environment]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment
+[repository-environment-deployment-policy]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment_deployment_policy
+[repository-file]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
+[repository-ruleset]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset
+[terraform-registry]: https://registry.terraform.io/modules/agilecustoms/repo/github/latest
+[terraform-registry-badge]: https://img.shields.io/badge/Terraform-Module-blue.svg
