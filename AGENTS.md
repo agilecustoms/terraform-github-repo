@@ -1,9 +1,7 @@
 # AGENTS.md
 
-Shared agilecustoms rules (git, code style) are in `../tools/agents/AGENTS.md`.
-This file is `terraform-github-repo` specific
-
-`README.md` is its public page (GitHub, Terraform Registry): only user-facing content goes there, internals are here
+The repo is public. `README.md` is shown on GitHub and Terraform Registry,
+so it has only user-facing content, internals are here
 
 ## Tech summary
 
@@ -15,6 +13,11 @@ This file is `terraform-github-repo` specific
 
 *infrastructure-core* creates all agilecustoms repos with it (`github/repo-*.tf`).
 Repos it creates are ready for releases with GH Action *release*: `release` environment with secrets, protected branches
+
+## Changes
+
+The module is public, others depend on it: all changes (even small ones and docs) go through branch `next`,
+see release procedure in [docs/contribution.md](docs/contribution.md) (breaking change: major version, migration guide)
 
 ## Development
 

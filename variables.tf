@@ -135,12 +135,6 @@ variable "homepage_url" {
   description = "URL of a page describing the project"
 }
 
-variable "ignore_vulnerability_alerts_during_read" {
-  type        = bool
-  default     = null
-  description = "Set to true to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read"
-}
-
 variable "is_template" {
   type        = bool
   default     = false

@@ -85,7 +85,6 @@ Important inputs are marked with **bold**. The rest should be good by default
 | has_projects                             | no       |                               | Set to _true_ to enable the GitHub Projects features on the repository                                                                                                                                                                                                                                                                                                                                                                                                     |
 | has_wiki                                 | no       | _false_                       | Set to _true_ to enable the GitHub Wiki features on the repository                                                                                                                                                                                                                                                                                                                                                                                                         |
 | homepage_url                             | no       |                               | URL of a page describing the project                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ignore_vulnerability_alerts_during_read  | no       |                               | Set to true to not call the vulnerability alerts endpoint so the resource can also be used without admin permissions during read                                                                                                                                                                                                                                                                                                                                           |
 | is_template                              | no       | _false_                       | Set to true to tell GitHub that this is a template repository                                                                                                                                                                                                                                                                                                                                                                                                              |
 | license_template                         | no       |                               | Use the [name of the template][licenses] without the extension. For example, "mit" or "mpl-2.0"                                                                                                                                                                                                                                                                                                                                                                            |
 | merge_commit_message                     | no       |                               | Can be `PR_BODY`, `PR_TITLE`, or `BLANK` for a default merge commit message. Applicable only if `allow_merge_commit` is `true`                                                                                                                                                                                                                                                                                                                                             |
@@ -155,14 +154,14 @@ Important inputs are marked with **bold**. The rest should be good by default
 
 | Name      | Version   |
 |-----------|-----------|
-| terraform | >= 1.5.7  |
-| github    | >= 4.26.0 |
+| terraform | >= 1.9.0  |
+| github    | >= 6.12.0 |
 
 ## Providers
 
 | Name   | Version   |
 |--------|-----------|
-| github | >= 4.26.0 |
+| github | >= 6.12.0 |
 
 ## Modules
 
@@ -173,6 +172,8 @@ No modules
 | Name                                                                                                | Type     |
 |-----------------------------------------------------------------------------------------------------|----------|
 | [github_repository.repo][repository]                                                                | resource |
+| [github_repository_vulnerability_alerts.repo][repository-vulnerability-alerts]                      | resource |
+| [github_repository_pages.repo][repository-pages]                                                    | resource |
 | [github_actions_repository_access_level.access][actions-repository-access-level]                    | resource |
 | [github_branch.default][branch]                                                                     | resource |
 | [github_branch_default.it][branch-default]                                                          | resource |
@@ -182,6 +183,14 @@ No modules
 | [github_repository_environment.release][repository-environment]                                     | resource |
 | [github_actions_environment_secret.release][actions-environment-secret]                             | resource |
 | [github_repository_environment_deployment_policy.release][repository-environment-deployment-policy] | resource |
+
+## Upgrading
+
+Breaking changes and how to migrate: [Migration Guide][migration]
+
+## Contributing
+
+Issues and pull requests are welcome, see [Contribution guideline][contribution]
 
 ## Authors
 
@@ -200,14 +209,18 @@ Copyright 2025 [Alexey Chekulaev][alexey-chekulaev]
 [alexey-chekulaev]: https://github.com/laxa1986
 [branch]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch
 [branch-default]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_default
+[contribution]: https://github.com/agilecustoms/terraform-github-repo/blob/main/docs/contribution.md
 [license]: https://github.com/agilecustoms/terraform-github-repo/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/agilecustoms/terraform-github-repo
 [licenses]: https://github.com/github/choosealicense.com/tree/gh-pages/_licenses
+[migration]: https://github.com/agilecustoms/terraform-github-repo/blob/main/docs/MIGRATION.md
 [name-of-the-template]: https://github.com/github/gitignore
 [repository]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository
 [repository-environment]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment
 [repository-environment-deployment-policy]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment_deployment_policy
 [repository-file]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
+[repository-pages]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_pages
 [repository-ruleset]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset
+[repository-vulnerability-alerts]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_vulnerability_alerts
 [terraform-registry]: https://registry.terraform.io/modules/agilecustoms/repo/github/latest
 [terraform-registry-badge]: https://img.shields.io/badge/Terraform-Module-blue.svg

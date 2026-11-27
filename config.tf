@@ -4,7 +4,7 @@ terraform {
   required_providers {
     github = {
       source  = "integrations/github"
-      version = ">= 4.26.0"
+      version = ">= 6.12.0" # github_repository_vulnerability_alerts
     }
   }
 }
