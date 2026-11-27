@@ -1,5 +1,38 @@
 # Changelog
 
+## [2.0.0](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.8...v2.0.0) (2026-11-27)
+
+### ⚠ BREAKING CHANGES
+
+* existing Pages site must be imported into github_repository_pages.repo, see docs/MIGRATION.md (v1 -> v2)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+* input ignore_vulnerability_alerts_during_read is removed, see docs/MIGRATION.md (v1 -> v2)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+* GitHub provider >= 6.12.0 is required, see docs/MIGRATION.md (v1 -> v2)
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+
+### Documentation
+
+* AGENTS.md w/o pointer to shared rules, implicit by directory hierarchy ([a446ba7](https://github.com/agilecustoms/terraform-github-repo/commit/a446ba778f26034181f3fb2d61a25ae14e2cb5b5))
+* contribution.md, project keeps using next after release ([5fc631d](https://github.com/agilecustoms/terraform-github-repo/commit/5fc631d32c4c86ed24968d049901cfa501ea96e6))
+* md reference-style links, grouped at the bottom [skip ci] ([4c54544](https://github.com/agilecustoms/terraform-github-repo/commit/4c54544231f90a8e4c59657bef91fb4349c8ac36))
+* release procedure in docs/contribution.md, referenced from README and AGENTS.md ([a479398](https://github.com/agilecustoms/terraform-github-repo/commit/a479398d8bebd38f0b33ee4d15f6bb84c63d0164))
+* wrap md lines at 120 chars [skip ci] ([0b510c3](https://github.com/agilecustoms/terraform-github-repo/commit/0b510c35d967311c58f633a766a94e3f162a8396))
+
+### Features
+
+* GitHub Pages via github_repository_pages ([2cbbaf7](https://github.com/agilecustoms/terraform-github-repo/commit/2cbbaf7459c359b83189ce5fce0b0f29a7b24d2c))
+* remove input ignore_vulnerability_alerts_during_read, ignored by GitHub provider ([59baaa4](https://github.com/agilecustoms/terraform-github-repo/commit/59baaa483de3e071b5f0f459251c6ad70fa69b89))
+* vulnerability alerts via github_repository_vulnerability_alerts, github provider >= 6.12.0 ([b132764](https://github.com/agilecustoms/terraform-github-repo/commit/b132764b20a2ee6700a421b682163305031bc937))
+
+### Miscellaneous
+
+* release secrets via value instead of deprecated plaintext_value ([e0df331](https://github.com/agilecustoms/terraform-github-repo/commit/e0df331786f201d81c8e6be59172d4ea20c3da1a))
+
+
 ## [1.2.8](https://github.com/agilecustoms/terraform-github-repo/compare/v1.2.7...v1.2.8) (2026-11-26)
 
 ### Documentation
