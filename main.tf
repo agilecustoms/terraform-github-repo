@@ -25,7 +25,6 @@ resource "github_repository" "repo" {
   squash_merge_commit_title               = var.squash_merge_commit_title
   topics                                  = var.topics
   visibility                              = var.visibility
-  vulnerability_alerts                    = var.vulnerability_alerts
   web_commit_signoff_required             = var.web_commit_signoff_required
 
   dynamic "template" {
@@ -77,6 +76,13 @@ resource "github_repository" "repo" {
       }
     }
   }
+}
+
+resource "github_repository_vulnerability_alerts" "repo" {
+  count = var.vulnerability_alerts != null ? 1 : 0
+
+  repository = github_repository.repo.name
+  enabled    = var.vulnerability_alerts
 }
 
 resource "github_actions_repository_access_level" "access" {

@@ -28,6 +28,11 @@ run "defaults" {
   }
 
   assert {
+    condition     = length(github_repository_vulnerability_alerts.repo) == 0
+    error_message = "Vulnerability alerts must not be managed by default"
+  }
+
+  assert {
     condition     = github_branch.default.branch == "main" && github_branch_default.it.branch == "main"
     error_message = "Default branch must be main"
   }
@@ -107,6 +112,19 @@ run "actions_access_level_public" {
   assert {
     condition     = length(github_actions_repository_access_level.access) == 0
     error_message = "Actions access level must not be set for public repo"
+  }
+}
+
+run "vulnerability_alerts" {
+  command = plan
+
+  variables {
+    vulnerability_alerts = true
+  }
+
+  assert {
+    condition     = github_repository_vulnerability_alerts.repo[0].enabled == true && github_repository_vulnerability_alerts.repo[0].repository == "test-repo"
+    error_message = "Vulnerability alerts must be enabled for the repo"
   }
 }
 
