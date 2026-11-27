@@ -10,3 +10,5 @@ Input `vulnerability_alerts` is unchanged
   then run `terraform init -upgrade`
 - if you set `vulnerability_alerts`, the plan shows `github_repository_vulnerability_alerts.repo` to be created:
   it sets the same value the repo already has. `github_repository.repo` has no changes
+- input `ignore_vulnerability_alerts_during_read` is removed: it is deprecated and ignored by GitHub provider
+  (handles lack of permissions automatically), remove it from the module call
