@@ -16,9 +16,9 @@ resource "github_repository_environment_deployment_policy" "release" {
 }
 
 resource "github_actions_environment_secret" "release" {
-  for_each        = var.release_environment ? var.release_environment_secrets : {}
-  repository      = github_repository.repo.name
-  environment     = github_repository_environment.release[0].environment
-  secret_name     = each.key
-  plaintext_value = each.value
+  for_each    = var.release_environment ? var.release_environment_secrets : {}
+  repository  = github_repository.repo.name
+  environment = github_repository_environment.release[0].environment
+  secret_name = each.key
+  value       = each.value
 }
