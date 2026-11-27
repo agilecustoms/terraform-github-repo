@@ -173,6 +173,7 @@ No modules
 |-----------------------------------------------------------------------------------------------------|----------|
 | [github_repository.repo][repository]                                                                | resource |
 | [github_repository_vulnerability_alerts.repo][repository-vulnerability-alerts]                      | resource |
+| [github_repository_pages.repo][repository-pages]                                                    | resource |
 | [github_actions_repository_access_level.access][actions-repository-access-level]                    | resource |
 | [github_branch.default][branch]                                                                     | resource |
 | [github_branch_default.it][branch-default]                                                          | resource |
@@ -218,6 +219,7 @@ Copyright 2025 [Alexey Chekulaev][alexey-chekulaev]
 [repository-environment]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment
 [repository-environment-deployment-policy]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_environment_deployment_policy
 [repository-file]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_file
+[repository-pages]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_pages
 [repository-ruleset]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_ruleset
 [repository-vulnerability-alerts]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_vulnerability_alerts
 [terraform-registry]: https://registry.terraform.io/modules/agilecustoms/repo/github/latest

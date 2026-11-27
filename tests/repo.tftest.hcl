@@ -18,8 +18,13 @@ run "defaults" {
   }
 
   assert {
-    condition     = length(github_repository.repo.template) == 0 && length(github_repository.repo.pages) == 0 && length(github_repository.repo.security_and_analysis) == 0
-    error_message = "Optional repo blocks (template, pages, security_and_analysis) must be absent by default"
+    condition     = length(github_repository.repo.template) == 0 && length(github_repository.repo.security_and_analysis) == 0
+    error_message = "Optional repo blocks (template, security_and_analysis) must be absent by default"
+  }
+
+  assert {
+    condition     = length(github_repository_pages.repo) == 0
+    error_message = "Pages must not be managed by default"
   }
 
   assert {
@@ -224,8 +229,8 @@ run "optional_repo_blocks" {
   }
 
   assert {
-    condition     = github_repository.repo.pages[0].build_type == "workflow" && length(github_repository.repo.pages[0].source) == 0
-    error_message = "pages block without source expected for workflow build type"
+    condition     = github_repository_pages.repo[0].build_type == "workflow" && length(github_repository_pages.repo[0].source) == 0
+    error_message = "Pages without source expected for workflow build type"
   }
 
   assert {
@@ -276,7 +281,25 @@ run "pages_legacy" {
   }
 
   assert {
-    condition     = github_repository.repo.pages[0].source[0].branch == "gh-pages" && github_repository.repo.pages[0].source[0].path == "/"
-    error_message = "pages.source expected when pages_source_branch is set"
+    condition     = github_repository_pages.repo[0].source[0].branch == "gh-pages" && github_repository_pages.repo[0].source[0].path == "/"
+    error_message = "Pages source expected when pages_source_branch is set"
+  }
+
+  assert {
+    condition     = github_repository_pages.repo[0].repository == "test-repo"
+    error_message = "Pages expected for the module's repository"
+  }
+}
+
+run "pages_source_branch_only" {
+  command = plan
+
+  variables {
+    pages_source_branch = "gh-pages"
+  }
+
+  assert {
+    condition     = github_repository_pages.repo[0].build_type == "legacy" && github_repository_pages.repo[0].source[0].branch == "gh-pages"
+    error_message = "legacy build type expected when only pages_source_branch is set"
   }
 }

@@ -35,21 +35,6 @@ resource "github_repository" "repo" {
     }
   }
 
-  dynamic "pages" {
-    for_each = var.pages_source_branch != null || var.pages_build_type != null ? [1] : []
-    content {
-      cname      = var.pages_cname
-      build_type = var.pages_build_type
-      dynamic "source" {
-        for_each = var.pages_source_branch != null ? [1] : []
-        content {
-          branch = var.pages_source_branch
-          path   = var.pages_source_path
-        }
-      }
-    }
-  }
-
   dynamic "security_and_analysis" {
     for_each = var.security_and_analysis_advanced_security_status != null || var.security_and_analysis_secret_scanning_status != null || var.security_and_analysis_secret_scanning_push_protection_status != null ? [1] : []
     content {
@@ -73,6 +58,27 @@ resource "github_repository" "repo" {
           status = var.security_and_analysis_secret_scanning_push_protection_status
         }
       }
+    }
+  }
+
+  lifecycle {
+    # Pages are managed by github_repository_pages.repo, deprecated 'pages' block is left in v1 state
+    ignore_changes = [pages]
+  }
+}
+
+resource "github_repository_pages" "repo" {
+  count = var.pages_source_branch != null || var.pages_build_type != null ? 1 : 0
+
+  repository = github_repository.repo.name
+  build_type = coalesce(var.pages_build_type, "legacy") # source branch w/o build type, GitHub default is legacy
+  cname      = var.pages_cname
+
+  dynamic "source" {
+    for_each = var.pages_source_branch != null ? [1] : []
+    content {
+      branch = var.pages_source_branch
+      path   = var.pages_source_path
     }
   }
 }
