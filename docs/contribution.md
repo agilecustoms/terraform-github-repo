@@ -21,4 +21,4 @@ before they are released:
 4. after testing: create a PR `next` -> `main` and merge it with a merge commit
    (squash would lose the individual commit prefixes the version and release notes are derived from).
    CI releases the new version
-5. switch your project back to the Registry source with the new version, delete branch `next`
+5. recreate `next` from `main` (GitHub deletes it on merge) and push it: your project keeps using `next`
