@@ -188,6 +188,10 @@ No modules
 
 Breaking changes and how to migrate: [Migration Guide][migration]
 
+## Contributing
+
+Issues and pull requests are welcome, see [Contribution guideline][contribution]
+
 ## Authors
 
 Module is maintained by [Alexey Chekulaev][alexey-chekulaev]
@@ -205,6 +209,7 @@ Copyright 2025 [Alexey Chekulaev][alexey-chekulaev]
 [alexey-chekulaev]: https://github.com/laxa1986
 [branch]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch
 [branch-default]: https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_default
+[contribution]: https://github.com/agilecustoms/terraform-github-repo/blob/main/docs/contribution.md
 [license]: https://github.com/agilecustoms/terraform-github-repo/blob/main/LICENSE
 [license-badge]: https://img.shields.io/github/license/agilecustoms/terraform-github-repo
 [licenses]: https://github.com/github/choosealicense.com/tree/gh-pages/_licenses

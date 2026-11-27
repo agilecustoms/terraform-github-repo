@@ -16,6 +16,11 @@ This file is `terraform-github-repo` specific
 *infrastructure-core* creates all agilecustoms repos with it (`github/repo-*.tf`).
 Repos it creates are ready for releases with GH Action *release*: `release` environment with secrets, protected branches
 
+## Changes
+
+The module is public, others depend on it: all changes (even small ones and docs) go through branch `next`,
+see release procedure in [docs/contribution.md](docs/contribution.md) (breaking change: major version, migration guide)
+
 ## Development
 
 `make lint test-tf-validate test-tf`, all targets are in [Makefile](Makefile).
