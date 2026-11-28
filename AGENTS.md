@@ -26,5 +26,4 @@ see release procedure in [docs/contribution.md](docs/contribution.md) (breaking 
 
 ## Documentation rules
 
-- the repo is public: in docs and examples use placeholders (`my-company`, `123456789012`), not real ids
 - README Inputs table must match `variables.tf` (names, required, defaults), Outputs table must match `outputs.tf`
