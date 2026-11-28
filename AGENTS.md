@@ -14,16 +14,16 @@ so it has only user-facing content, internals are here
 *infrastructure-core* creates all agilecustoms repos with it (`github/repo-*.tf`).
 Repos it creates are ready for releases with GH Action *release*: `release` environment with secrets, protected branches
 
-## Changes
+## Change together
 
-The module is public, others depend on it: all changes (even small ones and docs) go through branch `next`,
-see release procedure in [docs/contribution.md](docs/contribution.md) (breaking change: major version, migration guide)
+- README Inputs table must match `variables.tf` (names, required, defaults), Outputs table must match `outputs.tf`
 
 ## Development
 
 `make lint test-tf-validate test-tf`, all targets are in [Makefile](Makefile).
 `test-tf` runs `terraform test` (`tests/repo.tftest.hcl`) with a mocked `github` provider
 
-## Documentation rules
+## Release procedure
 
-- README Inputs table must match `variables.tf` (names, required, defaults), Outputs table must match `outputs.tf`
+The module is public, others depend on it: all changes (even small ones and docs) go through branch `next`,
+see release procedure in [docs/contribution.md](docs/contribution.md) (breaking change: major version, migration guide)
